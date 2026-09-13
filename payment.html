@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform9-3-4 | ชำระเงิน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .payment-shell {
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 0 18px 40px;
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .payment-methods {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .method-option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 16px;
+        background: #fbfcff;
+        cursor: pointer;
+      }
+
+      .method-option input {
+        accent-color: var(--primary);
+      }
+
+      .amount-box {
+        background: linear-gradient(135deg, #eef5ff, #ffffff);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px;
+      }
+
+      .amount-box h3 {
+        margin-top: 0;
+      }
+
+      .amount {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 8px 0 0;
+      }
+
+      .payment-form {
+        margin-top: 18px;
+      }
+
+      .payment-form input {
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .row-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      @media (max-width: 760px) {
+        .payment-grid,
+        .row-fields {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="payment-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">P9</div>
+          <div>
+            <p class="eyebrow">Platform9-3/4</p>
+            <h1>Payment</h1>
+          </div>
+        </div>
+        <nav class="topnav">
+          <a href="index.html">กลับหน้าแรก</a>
+        </nav>
+      </header>
+
+      <div class="payment-grid">
+        <section class="card">
+          <div class="section-header compact">
+            <h3>วิธีชำระเงิน</h3>
+          </div>
+
+          <div class="payment-methods">
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" checked />
+              <span>บัตรเครดิต / เดบิต</span>
+            </label>
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" />
+              <span>PromptPay / QR Code</span>
+            </label>
+            <label class="method-option">
+              <input type="radio" name="paymentMethod" />
+              <span>โอนผ่านธนาคาร</span>
+            </label>
+          </div>
+
+          <form id="paymentForm" class="payment-form">
+            <label>
+              <span>ชื่อบนบัตร</span>
+              <input type="text" id="cardName" placeholder="เช่น สมชาย ใจดี" required />
+            </label>
+            <label>
+              <span>หมายเลขบัตร</span>
+              <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+            </label>
+
+            <div class="row-fields">
+              <label>
+                <span>วันหมดอายุ</span>
+                <input type="text" id="expiry" placeholder="MM/YY" required />
+              </label>
+              <label>
+                <span>CVV</span>
+                <input type="text" id="cvv" placeholder="123" required />
+              </label>
+            </div>
+
+            <button type="submit" class="primary-btn full">ชำระเงินตอนนี้</button>
+          </form>
+        </section>
+
+        <aside class="card">
+          <div class="amount-box">
+            <h3>สรุปการชำระเงิน</h3>
+            <div id="paymentSummary"></div>
+            <div class="amount" id="totalAmount">฿0</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script src="payment.js"></script>
+  </body>
+</html>

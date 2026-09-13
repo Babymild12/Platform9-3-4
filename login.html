@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform9-3-4 | เข้าสู่ระบบ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .login-shell {
+        max-width: 480px;
+        margin: 60px auto;
+        padding: 0 18px 40px;
+      }
+
+      .login-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .login-card h2 {
+        margin-top: 0;
+      }
+
+      .auth-form {
+        display: grid;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .auth-form input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font: inherit;
+      }
+
+      .muted-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">P9</div>
+          <div>
+            <p class="eyebrow">Platform9-3/4</p>
+            <h1>เข้าสู่ระบบ</h1>
+          </div>
+        </div>
+        <nav class="topnav">
+          <a href="index.html">กลับหน้าแรก</a>
+        </nav>
+      </header>
+
+      <div class="login-card">
+        <h2>ยินดีต้อนรับ</h2>
+        <form id="loginForm" class="auth-form">
+          <label>
+            <span>อีเมล</span>
+            <input type="email" id="loginEmail" placeholder="example@email.com" required />
+          </label>
+
+          <label>
+            <span>รหัสผ่าน</span>
+            <input type="password" id="loginPassword" placeholder="กรอกรหัสผ่าน" required />
+          </label>
+
+          <button class="primary-btn full" type="submit">เข้าสู่ระบบ</button>
+        </form>
+
+        <p style="margin-top: 18px; text-align: center; color: var(--muted);">
+          ยังไม่มีบัญชี?
+          <a href="#" class="muted-link">สมัครสมาชิก</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

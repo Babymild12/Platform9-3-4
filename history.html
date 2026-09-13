@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform9-3-4 | ประวัติย้อนหลัง</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .history-shell {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 18px 40px;
+      }
+
+      .history-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .history-item {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 20px;
+      }
+
+      .history-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #0c8f88;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .history-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .info-box {
+        background: #f8fafe;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .empty-box {
+        background: white;
+        border: 1px dashed var(--line);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .history-grid {
+          grid-template-columns: repeat(2, minmax(140px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="history-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">P9</div>
+          <div>
+            <p class="eyebrow">Platform9-3/4</p>
+            <h1>ประวัติย้อนหลัง</h1>
+          </div>
+        </div>
+        <nav class="topnav">
+          <a href="index.html">กลับหน้าแรก</a>
+        </nav>
+      </header>
+
+      <div id="historyContent" class="history-list"></div>
+    </div>
+
+    <script src="history.js"></script>
+  </body>
+</html>

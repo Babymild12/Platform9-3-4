@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform9-3-4 | ตั๋วรถไฟ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .ticket-shell {
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 0 18px 40px;
+      }
+
+      .ticket-card {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 0;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .ticket-main {
+        padding: 28px;
+      }
+
+      .ticket-side {
+        background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+        border-left: 1px solid var(--line);
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .ticket-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .ticket-chip {
+        display: inline-flex;
+        align-items: center;
+        background: var(--accent-soft);
+        color: #0c8f88;
+        font-weight: 600;
+        padding: 7px 12px;
+        border-radius: 999px;
+      }
+
+      .ticket-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .value {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 6px;
+      }
+
+      .qr-box {
+        width: 180px;
+        height: 180px;
+        background: white;
+        border: 10px solid white;
+        border-radius: 18px;
+        box-shadow: 0 10px 20px rgba(19, 35, 72, 0.08);
+        margin-bottom: 14px;
+      }
+
+      .qr-box img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .ticket-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .secondary-btn {
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--text);
+        border-radius: 12px;
+        padding: 12px 16px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 760px) {
+        .ticket-card,
+        .ticket-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .ticket-side {
+          border-left: none;
+          border-top: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticket-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">P9</div>
+          <div>
+            <p class="eyebrow">Platform9-3/4</p>
+            <h1>Ticket</h1>
+          </div>
+        </div>
+        <nav class="topnav">
+          <a href="index.html">กลับหน้าแรก</a>
+        </nav>
+      </header>
+
+      <div id="ticketContent" class="ticket-card"></div>
+    </div>
+
+    <script src="ticket.js"></script>
+  </body>
+</html>

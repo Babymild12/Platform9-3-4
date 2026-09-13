@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform9-3-4 | ระบบซื้อตั๋วรถไฟออนไลน์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">P9</div>
+          <div>
+            <p class="eyebrow">Platform9-3/4</p>
+            <h1>Rail Booking</h1>
+          </div>
+        </div>
+        <nav class="topnav">
+          <a href="#search">ค้นหา</a>
+          <a href="#schedule">ขบวนรถ</a>
+          <a href="#booking">ชำระเงิน</a>
+          <a href="history.html">ประวัติย้อนหลัง</a>
+          <a href="login.html" data-role="login-link">เข้าสู่ระบบ</a>
+          <a href="#" data-role="logout-link" style="display:none;">ออกจากระบบ</a>
+        </nav>
+        <div id="authStatus" class="auth-status">ยังไม่ได้เข้าสู่ระบบ</div>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="badge">ระบบจองตั๋วด่วน</span>
+            <h2>เดินทางอย่างมั่นใจ<br />พร้อมตั๋วและที่นั่งที่ชัดเจน</h2>
+            <p>
+              จองตั๋วรถไฟออนไลน์ได้อย่างง่ายดาย เลือกเส้นทาง กำหนดเวลา และชำระเงินภายในไม่กี่คลิก
+            </p>
+          </div>
+          <div class="hero-panel">
+            <div class="mini-stat">
+              <span>เที่ยววันนี้</span>
+              <strong>128</strong>
+            </div>
+            <div class="mini-stat">
+              <span>ที่นั่งว่าง</span>
+              <strong>92%</strong>
+            </div>
+            <div class="mini-stat">
+              <span>เวลาโดยสาร</span>
+              <strong>2.5 ชม.</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="search" class="search-panel card">
+          <div class="section-title">
+            <h3>ค้นหาขบวนรถ</h3>
+          </div>
+          <form id="searchForm" class="search-form">
+            <label>
+              <span>ต้นทาง</span>
+              <select id="fromStation"></select>
+            </label>
+            <label>
+              <span>ปลายทาง</span>
+              <select id="toStation"></select>
+            </label>
+            <label>
+              <span>วันที่เดินทาง</span>
+              <input id="travelDate" type="date" />
+            </label>
+            <label>
+              <span>จำนวนผู้โดยสาร</span>
+              <select id="travelerCount">
+                <option value="1">1 คน</option>
+                <option value="2">2 คน</option>
+                <option value="3">3 คน</option>
+                <option value="4">4 คน</option>
+              </select>
+            </label>
+            <button type="submit" class="primary-btn">ค้นหาตั๋ว</button>
+          </form>
+        </section>
+
+        <section id="schedule" class="results-wrap">
+          <div class="section-header">
+            <h3>ผลการค้นหา</h3>
+            <span id="resultsMeta" class="results-meta">เลือกข้อมูลเดินทาง</span>
+          </div>
+          <div id="trainList" class="train-list"></div>
+        </section>
+
+        <section id="booking" class="booking-layout">
+          <div class="seat-card card">
+            <div class="section-header compact">
+              <h3>เลือกที่นั่ง</h3>
+              <span id="seatSummary" class="results-meta">ยังไม่ได้เลือกขบวน</span>
+            </div>
+            <div class="seat-map-wrap">
+              <div class="seat-map">
+                <div class="coach-header">
+                  <span>Coach 1</span>
+                  <span>ชั้น 2</span>
+                </div>
+                <div id="seatMap" class="seat-grid"></div>
+                <div class="seat-legend">
+                  <span><i class="dot available"></i> ว่าง</span>
+                  <span><i class="dot selected"></i> เลือกแล้ว</span>
+                  <span><i class="dot occupied"></i> ไม่ว่าง</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary-card card">
+            <div class="section-header compact">
+              <h3>สรุปการจอง</h3>
+            </div>
+            <div id="bookingSummary" class="booking-summary">
+              <p>ยังไม่มีข้อมูลการเลือก</p>
+            </div>
+
+            <form id="bookingForm" class="booking-form">
+              <h4>ข้อมูลผู้โดยสาร</h4>
+              <label>
+                <span>ชื่อ-นามสกุล</span>
+                <input type="text" id="passengerName" placeholder="เช่น สมชาย ใจดี" required />
+              </label>
+              <label>
+                <span>เบอร์โทรศัพท์</span>
+                <input type="tel" id="passengerPhone" placeholder="08x-xxx-xxxx" required />
+              </label>
+              <label>
+                <span>อีเมล</span>
+                <input type="email" id="passengerEmail" placeholder="example@email.com" required />
+              </label>
+              <button type="submit" class="primary-btn full">ยืนยันการจอง</button>
+            </form>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
