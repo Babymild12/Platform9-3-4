@@ -23,6 +23,8 @@
 - Keep service-role keys, signing secrets, and real gateway credentials out of browser bundles and source control.
 - Rate-limit authentication, hold creation, payment callbacks, and ticket verification; audit staff/admin mutations.
 
-## Initial vertical slice
+## Current vertical slice
 
-The current homepage uses a clearly labeled static timetable so the UI can be exercised without backend credentials. The Supabase migration and typed client utilities are foundations; authentication, real search, checkout, payment, and ticket APIs remain implementation tasks.
+The homepage has a clearly labeled static timetable and a complete browser-only demo flow: search fixture routes, choose a fare and sample seats, enter passenger names, select simulated PromptPay/card payment, generate a demo QR ticket, reopen it from session history, print it, or cancel it. Demo tickets live only in the current browser tab's `sessionStorage`; their seat availability is not shared across users or devices. The QR code is not valid for travel or ticket verification.
+
+This flow does not create a server booking, hold real inventory, authenticate passengers, collect payment, or persist tickets to Supabase. The Supabase migration and typed client utilities are foundations only. Real booking requires configured Supabase, authenticated server-side booking/payment endpoints, transactional seat holds, RLS and role checks, idempotent payment state transitions, and server-issued tickets. Never treat a successful demo payment as authoritative.

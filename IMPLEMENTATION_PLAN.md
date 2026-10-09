@@ -1,5 +1,11 @@
 # Implementation Plan
 
+## Current milestone
+
+- Complete in browser demo: fixture route/date search, fare selection, sample seat map, passenger names, simulated payment choices, QR demo ticket, session-only ticket history, print, and demo cancellation.
+- Still required for real service: Supabase project configuration and migration/RLS testing, passenger authentication, server-side transactional seat holds and booking records, authoritative payment state, and server-issued/verified tickets.
+- Do not interpret the browser demo as a reservation, payment, or ticket that is valid for travel.
+
 ## Phase 1: Foundation and design
 
 - Agree station/train/run/seat vocabulary, ERD, data dictionary, role matrix, API contracts, and wireframes.
